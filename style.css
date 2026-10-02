@@ -1,34 +1,89 @@
-*{
+/* --- global font and sizing sets --- */
+* {
     font-family: Fira Code, Consolas, 'Courier New', monospace;
+    box-sizing: border-box;
 }
 
-img{
+/* bottom footer force */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* pushes footer */
+.content-wrapper {
+    flex: 1;
+}
+
+img {
     width: 100%;
     border-radius: 5px;
 }
 
-.hero-image{
+/* --- header --- */
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;   
+}
+.top-header {
+    background-color: #005EB8;
+    color: #FFFFFF;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-logo-img {
+    height: 60px; 
+    width: auto;  
+    border-radius: 0;
+}
+
+.header-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.header-logo-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+
+.header-nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: opacity 0.2s ease;
+}
+
+.header-nav a:hover {
+    opacity: 0.8;
+}
+
+/* --- hero section --- */
+.hero-image {
     background-image: url("bron 76ers banner.png");
     height: 352px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
-.desc-header{
-    text-align: left;
-    color: black;
-}
-.desc{
-    text-align: left;
-    color: black;
-    line-height: 1.1;
-}
-
-.hero-text{
+.hero-text {
     color: rgb(255, 255, 255);
     left: 0;
-    top: 160px;
+    bottom: 30px;
     width: 100%;
     position: absolute;
     text-align: center;
@@ -36,17 +91,82 @@ img{
     font-weight: bold;
     -webkit-text-stroke: 1px #005EB8; 
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    margin: 0;
 }
 
+/* --- description section --- */
+.desc-container {
+    width: 80%;
+    margin: 40px auto 0;
+}
+
+.desc-header {
+    text-align: left;
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.desc {
+    text-align: left;
+    color: black;
+    line-height: 1.5;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* --- two column roster --- */
 .two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 50px;
-  width: 80%;
-  margin: auto;
-  margin-top: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 90px;
+    width: 80%;
+    margin: auto;
+    margin-top: 60px;
 }
 
-.info{
+.info {
     font-size: 1.25em;
+}
+
+/* --- footer --- */
+.bottom-header {
+    background-color: #111111;
+    color: #AAAAAA;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 80px; 
+    border-top: 3px solid #ED174C;
+}
+
+.footer-nav a {
+    color: #AAAAAA;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.footer-nav a:hover {
+    color: #FFFFFF;
+}
+
+/* --- fixes --- */
+@media (max-width: 768px) {
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .top-header, .bottom-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .header-nav a {
+        margin: 0 10px;
+    }
+    .hero-text {
+        font-size: 2rem;
+    }
 }
